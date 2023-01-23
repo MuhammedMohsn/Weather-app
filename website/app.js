@@ -57,7 +57,7 @@ function getPostUpdate() {
    let zipCode = zip_input.value;
     getDataFromAPI(url, zipCode, apiKey).then(dataFromAPI => {
         return postData("/post", dataFromAPI)
-    }).then((dataFromServer) => {
+    }).then((_dataFromServer) => {
         updateUI();
     }).catch(err => { console.log("the error is : ", err) });
 }

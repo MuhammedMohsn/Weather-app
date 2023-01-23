@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 // Cors for cross origin allowance
 let Cors = require('cors');
 // Initialize the main project folder
-app.use(Cors())
+app.use(Cors({origin:"*"}))
 app.use(express.static('website'));
 // Setup Server
 const port=4000;
@@ -24,7 +24,7 @@ app.listen(port,()=>{
     console.log(`server is running on port:${port}`)
 });
 // create  endpoint for the server to get the data from the server
-app.get("/get",(req, res) => {res.send(projectData)});
+app.get("/get",(_req, res) => {res.send(projectData)});
 // create endpoint for the server to post data into the server
 app.post("/post",(req, res) => {
     projectData.temperature=req.body.temperature;
